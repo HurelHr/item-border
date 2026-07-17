@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "item_obtained": {
+            "trigger": "inventory_changed"
+        }
+    },
+    "rewards": {
+        "function": "item_border:on_pickup"
+    }
+}
