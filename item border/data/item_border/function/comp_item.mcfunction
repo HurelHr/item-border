@@ -1,1 +1,0 @@
-$execute unless data storage item_border:database play_data[{uuid:$(uuid)}].before_inventory[{id: "$(id)",count: $(count)}] run function item_border:catch_new_item with storage item_border:database play_data[{uuid:$(uuid)}].temp.current_item

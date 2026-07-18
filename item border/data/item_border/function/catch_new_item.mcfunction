@@ -1,1 +1,0 @@
-$data modify storage item_border:database play_data[{uuid:$(uuid)}].delta_result set value {id: "$(id)", count: $(count)}

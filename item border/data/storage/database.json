@@ -1,29 +1,3 @@
 {
-  "play_data": [
-    {
-      "uuid":[],
-      "player_name": "",
-      "snapshot": {
-        "before_inventory": [],
-        "current_inventory": [],
-        "next_before":[]
-      },
-      "temp": {
-          "current_item":{
-              "uuid":[],
-              "id":"",
-              "count":0
-          },
-          "new_item":{
-            "uuid":[],
-            "id":""
-          }
-      },
-      "delta_result": {
-            "id": "",
-            "count": 0
-        }
-    }
-    ],
     "collected": []
 }

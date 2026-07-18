@@ -1,2 +1,0 @@
-$data modify storage item_border:database play_data[{uuid: $(UUID)}].snapshot.current_inventory set value $(Inventory)
-$data modify storage item_border:database play_data[{uuid: $(UUID)}].snapshot.next_before set value $(Inventory)

@@ -1,0 +1,1 @@
+execute store result score @s collectItems run data get storage item_border:database collected
