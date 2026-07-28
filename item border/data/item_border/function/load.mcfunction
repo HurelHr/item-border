@@ -1,7 +1,6 @@
 scoreboard objectives add collectItems dummy
 scoreboard objectives add maxPage dummy
 scoreboard objectives add cursorPage dummy
-scoreboard objectives add itemPage dummy
 
 scoreboard players set item_border:codex_dialog cursorPage 1
 
