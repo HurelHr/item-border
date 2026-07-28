@@ -1,2 +1,0 @@
-# $execute unless data storage item_border:database collected[{id: "$(id)"}] run worldborder add 1
-$execute unless data storage item_border:database collected[{id: "$(id)"}] run data modify storage item_border:database collected append value {id: "$(id)"}

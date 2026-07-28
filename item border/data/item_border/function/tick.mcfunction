@@ -1,0 +1,1 @@
+execute as @a[tag=!registered] run function item_border:player_register

@@ -1,0 +1,1 @@
+$dialog show @s {type:"minecraft:multi_action",title:{"text":"Collections"},body:$(body),actions:[{label:"prev",action:{"type":"run_command","command":"execute at @s as @s run function item_border:dialog/prev_dialog"}},{label:"nxt",action:{"type":"run_command","command":"execute at @s as @s run function item_border:dialog/next_dialog"}}]}

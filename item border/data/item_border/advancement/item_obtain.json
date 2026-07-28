@@ -5,6 +5,6 @@
         }
     },
     "rewards": {
-        "function": "item_border:on_pickup"
+        "function": "item_border:item/on_pickup"
     }
 }

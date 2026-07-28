@@ -1,0 +1,1 @@
+$execute at @s as @s run function item_border:dialog/dialog_page with storage item_border:codex itemCodex[$(page)]
