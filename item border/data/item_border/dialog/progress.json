@@ -1,0 +1,5 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "progress",
+    "actions": [{"label":"check item list", "action": {"type": "run_command", "command": "execute as @s run function item_border:dialog/show_dialog"}}]
+}
