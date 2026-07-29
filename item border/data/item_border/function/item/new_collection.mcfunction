@@ -1,8 +1,7 @@
-# $execute run worldborder add 1
+$data modify storage item_border:codex itemCodex[$(page)].body[{item:{id:"$(id)"}}].description set value {"text":"[ ✅ ]","color":"green","bold":true}
+$data modify storage item_border:database collected append value {id: "$(id)"}
 
-$execute as @s run data modify storage item_border:codex itemCodex[$(page)].body[{item:{id:"$(id)"}}].description set value {"text":"[ ✅ ]","color":"green","bold":true}
-title @a title {"text":"New Item collected."}
-$title @a subtitle {"text":"$(id)"}
-execute as @a run playsound entity.experience_orb.pickup
+title @a actionbar {"text":"New Item Collected."}
+playsound entity.experience_orb.pickup master @a ~ ~ ~ 0.5
 
-$execute run data modify storage item_border:database collected append value {id: "$(id)"}
+function item_border:item/sync
