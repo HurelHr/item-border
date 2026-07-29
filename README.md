@@ -28,7 +28,7 @@ releases: [Here](https://github.com/HurelHr/item-border/releases)
 
 > minecraft 1.26.2
 
-items list, datapack are built based on minecraft 1.26.2
+items list, datapack are built based on minecraft 1.26.2   
 other minecraft version is compatible, after running updater script.
 
 ## Supported Minimum Version
