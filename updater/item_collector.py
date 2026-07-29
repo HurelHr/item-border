@@ -1,3 +1,9 @@
+__version__ = "1.0.0"
+__doc__ = """
+this is update script for item border datapack.
+call CodeUpdator.code_update() to update
+"""
+
 from typing import (
     Union,
     Optional,
@@ -169,7 +175,7 @@ class CodeUpdator:
                 json.dump(packData, js, indent=4)
 
     @classmethod
-    def code_updator(cls) -> None:
+    def update_code(cls) -> None:
         vpath: 'Path' = cls.version_selector()
         cls.get_jar_data(cls.get_version_jar(vpath))
         filteredItems: 'list[str]' = cls.item_filter(cls.itemList)
@@ -177,4 +183,4 @@ class CodeUpdator:
 
 
 if __name__ == '__main__':
-    CodeUpdator.code_updator()
+    CodeUpdator.update_code()
