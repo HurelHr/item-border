@@ -74,10 +74,12 @@ since `dialog` feature added, this datapack supports minecraft greater than 1.21
 - **multiplayer** ready
   - Fully automated player registration system
 - **One-Click Updater**
-  - This repository contains update python script. (check [detail]())
+  - This repository contains update python script. (check [detail](https://github.com/HurelHr/item-border/tree/main/updater))
 
 # Updater script
 
 - run `updater/item_collecter.py` to update items list, datapack description, pack metadata
   > python 3.9 or later required   
   > minecraft 1.21.6 or later compatible
+
+check [here](https://github.com/HurelHr/item-border/tree/main/updater) for detail
