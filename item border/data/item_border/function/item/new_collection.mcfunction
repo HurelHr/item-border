@@ -2,6 +2,6 @@ $data modify storage item_border:codex itemCodex[$(page)].body[{item:{id:"$(id)"
 $data modify storage item_border:database collected append value {id: "$(id)"}
 
 title @a actionbar {"text":"New Item Collected."}
-playsound entity.experience_orb.pickup master @a ~ ~ ~ 0.03
+playsound entity.experience_orb.pickup ui @a ~ ~ ~ 0.5
 
 function item_border:item/sync
