@@ -6,6 +6,10 @@
 
 minecraft item border datapack
 
+## Notice
+
+> fatal [issue](https://github.com/HurelHr/item-border/issues/1) is fixed. please update 1.0.1 version or later.
+
 # installation
 
 releases: [Here](https://github.com/HurelHr/item-border/releases)
@@ -23,6 +27,21 @@ releases: [Here](https://github.com/HurelHr/item-border/releases)
 1. click `[Done]`
 1. click `[Create New World]`
 1. enjoy!
+
+## multy play
+
+### Realms
+
+1. create world as like as single play
+2. open Realms
+
+### server.jar or bukkit
+
+1. launch server and create world
+1. go to `<world>/datapack`
+1. drag-and-drop `zip` file from [Here](https://github.com/HurelHr/item-border/releases)
+1. type `/reload` or restart your server to apply datapack
+  > when data pack load, world border immedietly shrink to 1 block diameter
 
 # Supported Version
 
