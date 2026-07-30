@@ -1,5 +1,5 @@
-> Datapack Version: V1.0.1   
-> Document Version: V1.0.0   
+> Script Version: V1.0.0   
+> Document Version: V1.0.1   
 > Last Modified: 2026-07-31
 
 # Manual
@@ -11,7 +11,7 @@
 
 ## step-by-step tutorial
 
-1. run python script: `updater/item_collecter.py`
+1. run python script: `updater/updater.py`
 1. folder selector screen will show
     > if select screen title is: `select minecraft version`, this script catch minecraft path.
     > if select screen title is: `select your minecraft folder and its version`, which means script failled to select correct minecraft path. please launch minecraft once or select **your** minecraft path
@@ -22,7 +22,7 @@
 1. done! now you can apply this datapack to other versions of minecraft!
 
 > Note: this datapack requires `dialog` feature on minecraft. since, select minecraft version greater than `1.21.6`
-> Also: if minecraft version changed, whis datapack not automatically update to new version. if you enjoy this datapack on up-to-date minecraft(or changed version), run python script: `updater/item_collecter.py` to update
+> Also: if minecraft version changed, whis datapack not automatically update to new version. if you enjoy this datapack on up-to-date minecraft(or changed version), run python script: `updater/updater.py` to update
 
 ## Exceptions
 

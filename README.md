@@ -1,6 +1,6 @@
-> DataPack Version: V1.0.0   
+> DataPack Version: V1.0.1   
 > Document Version: V1.0.0   
-> Last Modified: 2026-07-30
+> Last Modified: 2026-07-31
 
 # item-border
 
@@ -53,5 +53,5 @@ since `dialog` feature added, this datapack supports minecraft greater than 1.21
 # Updater script
 
 - run `updater/item_collecter.py` to update items list, datapack description, pack metadata
-  > python required   
-  > any minecraft version compatible
+  > python 3.9 or later required   
+  > minecraft 1.21.6 or later compatible

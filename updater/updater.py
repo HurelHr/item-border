@@ -1,7 +1,7 @@
 __version__ = "1.0.0"
 __doc__ = """
 this is update script for item border datapack.
-call CodeUpdator.code_update() to update
+call CodeUpdater.code_update() to update
 """
 
 from typing import (
@@ -69,7 +69,7 @@ def parse_registries(path: 'Path', report: 'Path') -> None:
 def default_minecraft_path() -> 'Path':
     return Path.home() / 'AppData' / 'Roaming' / '.minecraft'
 
-class CodeUpdator:
+class CodeUpdater:
     GAME_VERSION: 'str' = ''
     PACK_VERSION: 'dict' = {}
     itemList: 'list[str]' = []
@@ -180,7 +180,9 @@ class CodeUpdator:
         cls.get_jar_data(cls.get_version_jar(vpath))
         filteredItems: 'list[str]' = cls.item_filter(cls.itemList)
         cls.write_init_code(filteredItems)
+        cls.update_pack_meta()
 
+# =======
 
 if __name__ == '__main__':
-    CodeUpdator.update_code()
+    CodeUpdater.update_code()
