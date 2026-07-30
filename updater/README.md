@@ -1,6 +1,6 @@
-> Datapack Version: V1.0.0   
+> Datapack Version: V1.0.1   
 > Document Version: V1.0.0   
-> Last Modified: 
+> Last Modified: 2026-07-31
 
 # Manual
 
