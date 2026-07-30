@@ -1,10 +1,13 @@
 > DataPack Version: V1.0.3   
-> Document Version: V1.0.1   
+> Document Version: V1.0.2   
 > Last Modified: 2026-07-31
 
 # item-border
 
 minecraft item border datapack
+
+**State**: Stable / Active
+> no critical issues are found
 
 ## Notice
 
@@ -14,7 +17,7 @@ minecraft item border datapack
 
 releases: [Here](https://github.com/HurelHr/item-border/releases)
 
-## single play
+## singleplayer
 
 1. launch MINECRAFT
 1. Singleplayer
@@ -28,7 +31,7 @@ releases: [Here](https://github.com/HurelHr/item-border/releases)
 1. click `[Create New World]`
 1. enjoy!
 
-## multy play
+## Multiplayer
 
 ### Realms
 
@@ -58,16 +61,20 @@ since `dialog` feature added, this datapack supports minecraft greater than 1.21
 
 # Features
 
-- collect different type of item (ignore items that are not collectable in survival mode)
-- notice shows on `actionbar` when new item collect
-- item collection dialog (press `quick action` button(default `G`) to access this dialog)
-- dialog action button to change dialog page(s)
-- dynamic dialog shows item lists collected/not collected
-- world border size syncs to variants of items collected
-  > initial world border size is 1 block distance   
-  > every new item collected, world border increase immediately
-- multiplay able. automated player register
-- one-click updater script
+- **Items**: collect different type of item (ignore items that are not collectable in survival mode)
+- **Feedback**: notice shows on `actionbar` when new item collect
+- **Dialogs**
+  > - item collection dialog (press `quick action` button(default `G`) to access this dialog)
+  > - dialog action button to change dialog page(s)
+  > - dynamic dialog shows item lists collected/not collected
+- **World Border**
+  > - size syncs to variants of items collected
+  > - initial world border size is 1 block distance   
+  > - every new item collected, world border increase immediately
+- **multiplayer** ready
+  - Fully automated player registration system
+- **One-Click Updater**
+  - This repository contains update python script. (check [detail]())
 
 # Updater script
 
