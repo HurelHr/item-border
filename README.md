@@ -13,11 +13,11 @@ minecraft item border datapack
 
 > fatal [issue](https://github.com/HurelHr/item-border/issues/1) is fixed. please update 1.0.1 version or later.
 
-# installation
+# Installation
 
 releases: [Here](https://github.com/HurelHr/item-border/releases)
 
-## singleplayer
+## For Singleplayer
 
 1. launch MINECRAFT
 1. Singleplayer
@@ -31,14 +31,14 @@ releases: [Here](https://github.com/HurelHr/item-border/releases)
 1. click `[Create New World]`
 1. enjoy!
 
-## Multiplayer
+## For Multiplayer
 
 ### Realms
 
 1. create world as like as single play
 2. open Realms
 
-### server.jar or bukkit
+### `server.jar` or `bukkit`
 
 1. launch server and create world
 1. go to `<world>/datapack`
