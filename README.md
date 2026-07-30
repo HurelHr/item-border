@@ -52,6 +52,6 @@ since `dialog` feature added, this datapack supports minecraft greater than 1.21
 
 # Updater script
 
-- run `updater/item_collector.py` to update items list, datapack description, pack metadata
+- run `updater/item_collecter.py` to update items list, datapack description, pack metadata
   > python required   
   > any minecraft version compatible
