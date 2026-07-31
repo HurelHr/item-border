@@ -12,6 +12,7 @@ from typing import (
 from pathlib import Path
 from zipfile import ZipFile
 import json
+from fnmatch import fnmatch
 
 if TYPE_CHECKING:
     from zipfile import ZipInfo
@@ -118,7 +119,7 @@ class CodeUpdater:
         with (UPDATOR_HOME / 'impossible_items.json').open(encoding='utf-8') as js:
             invalidItems: 'list[str]' = json.load(js)
         def screen(itemCode: 'str') -> 'bool':
-            return not any(inv in itemCode for inv in invalidItems)
+            return not any(fnmatch(itemCode, inv) for inv in invalidItems)
         return [item for item in items if screen(item)]
 
     @staticmethod

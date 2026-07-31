@@ -6,15 +6,16 @@ scoreboard objectives add maxPage dummy
 scoreboard objectives add cursorPage dummy
 scoreboard objectives add dialogEvent trigger
 
-scoreboard players set item_border:codex_dialog cursorPage 1
-scoreboard players set item_border:border minimumDistance 1
+scoreboard players set #item_border:codex_page cursorPage 1
+scoreboard players set #item_border:codex_page_5 cursorPage 5
+scoreboard players set #item_border:border minimumDistance 1
 
 worldborder center 0.5 0.5
 
 execute unless data storage item_border:codex itemCodex run function item_border:world_init
 
-execute store result score item_border:codex_dialog maxPage run data get storage item_border:codex itemCodex
-scoreboard players operation item_border:codex_dialog maxPage -= item_border:codex_dialog cursorPage
+execute store result score #item_border:codex_page maxPage run data get storage item_border:codex itemCodex
+scoreboard players operation #item_border:codex_page maxPage -= #item_border:codex_page cursorPage
 
 function item_border:item/sync
 
