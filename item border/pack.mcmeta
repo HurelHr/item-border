@@ -1,7 +1,13 @@
 {
     "pack": {
         "description": "item border datapack item list for 26.2",
-        "min_format": [107, 1],
-        "max_format": [107, 1]
+        "min_format": [
+            107,
+            1
+        ],
+        "max_format": [
+            107,
+            1
+        ]
     }
 }

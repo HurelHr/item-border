@@ -1,4 +1,4 @@
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __doc__ = """
 this is update script for item border datapack.
 call CodeUpdater.code_update() to update
