@@ -40,7 +40,7 @@ releases: [여기](https://github.com/HurelHr/item-border/releases)에서 datapa
 1. 월드 폴더내의 `datapack` 폴더로 진입합니다.
 1. [이곳](https://github.com/HurelHr/item-border/releases)에서 받은 `zip`파일을 드래그 앤 드롭으로 넣습니다.
 1. 서버 콘솔에서 `/reload` 를 치거나, 서버를 재시작하여 데이터 팩을 적용시킵니다.
-  > 주의: 데이터 팩이 실행되면 세계 경계가 즉시 지름 1로 줄어듭니다.
+  > 주의: 데이터 팩이 실행되면 세계 경계가 즉시 1 $\times$ 1 크기로 줄어듭니다.
 
 # 지원 버전
 
