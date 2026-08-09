@@ -60,5 +60,6 @@
 
 - `RuntimeError: user not select directory`: 폴더를 선택하지 않고 창을 닫았을 때 발생합니다.
 - `RuntimeError: user not select file`: 파일을 선택하지 않고 창을 닫았을 때 발생합니다.
+- `RuntimeError: selected .jar file is not supported minecraft client or not a minecraft client.`: 올바른 minecraft 클라이언트 파일(`.jar`)을 선택하여 주십시오. 또는, minecraft 클라이언트를 1회 실행하여 해당 버전을 설치하여 주세요.
 - `OSError: not supported os: <...>`: 지원되지 않는 OS[Windows, MAC OS, Linux외]에서 업데이트 스크립트를 동작시켰을 때 발생합니다.
 - `ValueError: PACK VERSION is not parsed`: 선택한 `.jar` 파일이 손상되었거나, minecraft 클라이언트가 아닙니다. minecraft를 다시 설치하여 게임 클라이언트의 `version.json`을 복구하세요. 혹은 `CodeUpdater.get_jar_data` 메서드를 실행하여 pack data를 확보한 뒤에 `CodeUpdator.update_pack_meta` 메서드를 실행하세요.

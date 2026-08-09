@@ -61,5 +61,6 @@
 
 - `RuntimeError: user not select directory`: close folder-select-window without select any folder
 - `RuntimeError: user not select file`: close folder-select-window without select any file
+- `RuntimeError: selected .jar file is not supported minecraft client or not a minecraft client.`: select correct minecraft client `.jar` file. or, launch minecraft once to install minecraft client
 - `OSError: not supported os: <...>`: run this script not on windows, macos or linux
 - `ValueError: PACK VERSION is not parsed`: select correct minecraft client `.jar` file. if this exception occured, try re-install minecraft client. `version.json` file under the client may damaged. or, run `CodeUpdater.get_jar_data` method before run `CodeUpdator.update_pack_meta` method
