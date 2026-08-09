@@ -70,7 +70,7 @@ minecraft 1.21.6 버전부터 새로 추가된 `dialog` 기능을 사용하여, 
 - **멀티플레이 가능**
   - 플레이어 등록 시스템 자동화 되어있습니다.
 - **데이터팩 업데이터**
-  - 이 레포지토리내에 데이터 팩을 업데이트 할 수 있는 python 스크립트가 내장되어있습니다. ([이곳](https://github.com/HurelHr/item-border/tree/main/updater)에서 자세한 내용을 확인할 수 있습니다.)
+  - 이 레포지토리내에 데이터 팩을 업데이트 할 수 있는 python 스크립트가 내장되어있습니다. ([이곳](https://github.com/HurelHr/item-border/blob/main/updater/README_KR.md)에서 자세한 내용을 확인할 수 있습니다.)
 
 # 데이터 팩 업데이터
 
@@ -78,4 +78,4 @@ minecraft 1.21.6 버전부터 새로 추가된 `dialog` 기능을 사용하여, 
   > python 3.9 이상 버전 필요   
   > minecraft 1.21.6 이상 버전에서 작동합니다.
 
-[이곳](https://github.com/HurelHr/item-border/tree/main/updater)에서 자세한 내용을 확인할 수 있습니다.
+[이곳](https://github.com/HurelHr/item-border/tree/main/updater/README_KR.md)에서 자세한 내용을 확인할 수 있습니다.
