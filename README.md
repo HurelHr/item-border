@@ -35,7 +35,7 @@ releases: [Here](https://github.com/HurelHr/item-border/releases)
 
 ### Realms
 
-1. create world as like as single play
+1. create world as like as [single play](#for-singleplayer)
 2. open Realms
 
 ### `server.jar` or `bukkit`
@@ -44,7 +44,7 @@ releases: [Here](https://github.com/HurelHr/item-border/releases)
 1. go to `<world>/datapack`
 1. drag-and-drop `zip` file from [Here](https://github.com/HurelHr/item-border/releases)
 1. type `/reload` or restart your server to apply datapack
-  > when data pack load, world border immedietly shrink to 1 block diameter
+  > Warning: when data pack load, world border immedietly shrink to 1 block diameter
 
 # Supported Version
 
@@ -65,7 +65,7 @@ since `dialog` feature added, this datapack supports minecraft greater than 1.21
 - **Feedback**: notice shows on `actionbar` when new item collect
 - **Dialogs**
   > - item collection dialog (press `quick action` button(default `G`) to access this dialog)
-  > - dialog action button to change dialog page(s)
+  > - dialog action button to change dialog page(s) (Enter or Arrow key to access and navigate)
   > - dynamic dialog shows item lists collected/not collected
 - **World Border**
   > - size syncs to variants of items collected
