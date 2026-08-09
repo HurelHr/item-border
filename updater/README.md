@@ -11,7 +11,7 @@
 
 - move this `updator` folder under the directory of datapack exists
 
-    folder tree should look likes:
+    folder tree should be like:
     ```
     <folder>/
         ├─item border/
