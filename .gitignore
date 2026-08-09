@@ -219,6 +219,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# bin
+# user creates
 *.zip
 changelog.md
+test/

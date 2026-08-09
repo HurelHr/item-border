@@ -1,10 +1,11 @@
-__version__ = "1.0.2"
+__version__ = "1.1.0"
 __doc__ = """
 this is update script for item border datapack.
 call CodeUpdater.code_update() to update
 """
 
 from typing import (
+    Iterable,
     Union,
     Optional,
     TYPE_CHECKING
@@ -17,6 +18,9 @@ import sys
 
 if TYPE_CHECKING:
     from zipfile import ZipInfo
+    from typing import TypeAlias
+    
+    AvailableFileTypeOptions: 'TypeAlias' = Optional[Iterable[tuple[str, str | list[str] | tuple[str, ...]]]]
 
 UPDATOR_HOME: 'Path' = Path(__file__).parent
 """directory that contains this file"""
@@ -26,7 +30,7 @@ PACK_HOME: 'Path' = UPDATOR_HOME.parent
 ITEMS_PER_PAGE: 'int' = 50
 """the number of items in single dialog page"""
 
-def folderselector(path: 'Union[Path, str, None]'=None, title: 'Optional[str]'=None) -> 'Path':
+def folder_selector(path: 'Union[Path, str, None]'=None, title: 'Optional[str]'=None) -> 'Path':
     """
     to use tkinter
     shows window to select directory
@@ -63,6 +67,50 @@ def folderselector(path: 'Union[Path, str, None]'=None, title: 'Optional[str]'=N
     # user close the window without response
     raise RuntimeError('user not select directory')
 
+def file_selector(
+    path: 'Union[Path, str, None]'=None,
+    title: 'Optional[str]'=None,
+    extensions: 'AvailableFileTypeOptions'=None
+) -> 'Path':
+    """
+    to use tkinter
+    shows window to select directory
+    
+    Args:
+        path (Path|str|None): directory path to show initially. Defaults to None
+        title (str|None): window title
+        extensions (Iterable[tuple[str, str | list[str] | tuple[str, ...]]]|None): iterable of str, list or tuple with extension string to filter the file list when shows on file asking window
+        
+    Raises:
+        RuntimeError: this raises when user not select directory on tkinter window.
+        
+    Returns:
+        Path: pathlib.Path instance contains selected directory path
+    """
+    
+    # use tkinter
+    from tkinter import Tk
+    from tkinter.filedialog import askopenfilename
+    # create window
+    tk = Tk()
+    tk.withdraw()
+    tk.attributes('-topmost', True)
+    # get user input
+    file = askopenfilename(
+        initialdir=path,
+        title=title,
+        filetypes=extensions
+    )
+    # kill tk
+    tk.destroy()
+    
+    # if user reply
+    if file:
+        return Path(file)
+    # user close the window without response
+    raise RuntimeError('user not select file')
+    
+
 def collect_items(path: 'Path') -> 'list[Path]':
     """
     collect all file and return the files list
@@ -83,6 +131,7 @@ def collect_items(path: 'Path') -> 'list[Path]':
         if content.is_file(): result.append(content)
     return result
 
+# for test only
 def collect_to_json(path: 'Path', fileName: 'str', items: 'list[Path]') -> None:
     """
     create `json` file under given directory Path with given `items`
@@ -105,6 +154,7 @@ def collect_to_json(path: 'Path', fileName: 'str', items: 'list[Path]') -> None:
     with path.open('w', encoding='utf-8') as js:
         json.dump(itemNames, js, ensure_ascii=False, indent=4)
 
+# for test only
 def collect_to_csv(path: 'Path', items: 'list[str]') -> None:
     """
     create `items.csv` file under given path with given `items`
@@ -123,6 +173,7 @@ def collect_to_csv(path: 'Path', items: 'list[str]') -> None:
     with path.open('w', encoding='utf-8') as cv:
         cv.write('\n'.join(items))
 
+# deprecated
 def parse_registries(path: 'Path', report: 'Path') -> None:
     """
     parse `registries.json` from decomposed `server.jar`
@@ -179,13 +230,10 @@ class CodeUpdater:
     """existing all list of items from selected version of minecraft client"""
 
     @staticmethod
-    def version_selector() -> 'Path':
+    def select_version() -> 'Path':
         """
-        to use tkinter to select specific version of minecraft client to parse
+        to use tkinter to select specific version of minecraft client to parse.   
         tkinter askfolder window will show
-        
-        Raises:
-            RuntimeError: it raises when the user not select directory
         
         Returns:
             Path: directory Path of minecraft client data `<version>.jar` file
@@ -195,38 +243,33 @@ class CodeUpdater:
         # check client exist
         if gamePath.exists():
             # ask version directory
-            return folderselector(path=default_minecraft_path() / 'versions', title='select minecraft version')
+            return file_selector(path=default_minecraft_path() / 'versions', title='select minecraft client ".jar" file.', extensions=[('minecraft client file', '*.jar')])
         else:
             # ask to find minecraft and its version
-            return folderselector(title='select your minecraft folder and its version')
+            return file_selector(title='failed to detect minecraft folder. please select your own minecraft client ".jar" under your own directory path.', extensions=[('minecraft client file', '*.jar')])
 
     @staticmethod
-    def get_version_jar(path: 'Path') -> 'Path':
+    def check_version_jar(path: 'Path') -> 'bool':
         """
-        find `<version>.jar` under given path
+        check given `<version>.jar` is valid game client or not
         
         Args:
             path (Path): directory Path of `<version>.jar`
         
-        Raises:
-            ValueError: it raises when any `.jar` file not found
-        
         Returns:
-            Path: Path of `<version>.jar`
+            bool: validation of `<version>.jar`
         """
-        # search result
-        versionJar: 'Optional[Path]' = None
-        # file/folder under given Path
-        for f in path.iterdir():
-            # if jar file
-            if f.suffix == '.jar':
-                # catch
-                versionJar = f
-                break
-        # check find/not find
-        if versionJar is None:
-            raise ValueError('minecraft is not installed or invalid path. please check valid version path or install minecraft before run this script.')
-        return versionJar
+        # extesion check
+        if path.suffix != '.jar':
+            return False
+        # file list check
+        with ZipFile(path) as jarFile:
+            contains: 'list[str]' = jarFile.namelist()
+            if 'version.json' not in contains:
+                return False
+            elif not any(f.startswith('assets/minecraft/items') for f in contains):
+                return False
+            return True
 
     @classmethod
     def get_items_list(cls, jarFile: 'ZipFile') -> None:
@@ -366,7 +409,7 @@ class CodeUpdater:
         # write `init_codex.mcfunction`
         with open(UPDATOR_HOME.parent / 'item border' / 'data' / 'item_border' / 'function' / 'dialog' / 'init_codex.mcfunction', 'w', encoding='utf-8') as mcfunc:
             # set client version
-            mcfunc.write(f'# Game Version: 1.{cls.GAME_VERSION}\n')
+            mcfunc.write(f'# Game Version: {cls.GAME_VERSION}\n')
             # storage initialize
             mcfunc.write('data modify storage item_border:codex itemCodex set value []\n')
             mcfunc.write('data modify storage item_border:codex index set value []\n')
@@ -391,26 +434,10 @@ class CodeUpdater:
         packMcMeta: 'Path' = PACK_HOME / 'item border' / 'pack.mcmeta'
         # set `pack.mcmeta` description template
         PACK_DESCRIPTION: 'str' = "item border datapack item list for {version}"
-        # check `pack.mcmeta` exists
-        if packMcMeta.exists():
-            # open `pack.mcmeta` file
-            with open(packMcMeta, 'r', encoding='utf-8') as js:
-                # get datapack
-                packData: 'dict' = json.load(js)
-                # set datapack description
-                packData['pack']['description'] = PACK_DESCRIPTION.format(version=cls.GAME_VERSION)
-                # get and set pack version
-                packVersion: 'list[int]' = [cls.PACK_VERSION.get('data_major', 0), cls.PACK_VERSION.get('data_minor', 0)]
-                # set pack version(for 1.21.9, 25w31a or later)
-                packData['pack']['min_format'] = packVersion
-                packData['pack']['max_format'] = packVersion
-            # dump to `pack.mcmeta`
-            with open(packMcMeta, 'w', encoding='utf-8') as js:
-                json.dump(packData, js, indent=4)
-        # `pack.mcmeta` not exists
-        else:
-            # create `pack.mcmeta`
-            with open(packMcMeta, 'w', encoding='utf-8') as js:
+        # create `pack.mcmeta`
+        with open(packMcMeta, 'w', encoding='utf-8') as js:
+            # version for 1.21.9, 25w31a or later
+            if 'data_major' in cls.PACK_VERSION:
                 # get pack version
                 packVersion = [cls.PACK_VERSION.get('data_major', 0), cls.PACK_VERSION.get('data_minor', 0)]
                 # create content of `pack.mcmeta`
@@ -421,8 +448,18 @@ class CodeUpdater:
                         "max_format": packVersion
                     }
                 }
-                # dump it
-                json.dump(packData, js, indent=4)
+            # version for 1.21.8 or older
+            elif 'data' in cls.PACK_VERSION:
+                packData = {
+                    "pack": {
+                        "description": PACK_DESCRIPTION.format(version=cls.GAME_VERSION),
+                        "pack_format": cls.PACK_VERSION.get('data', 0)
+                    }
+                }
+            else:
+                raise ValueError('PACK VERSION is not parsed.')
+            # dump it
+            json.dump(packData, js, indent=4)
 
     @classmethod
     def update_code(cls) -> None:
@@ -450,9 +487,12 @@ class CodeUpdater:
             4. this method will parse game client version, datapack version, items list
         """
         # set user input: select game client version under .minecraft/versions
-        vpath: 'Path' = cls.version_selector()
+        client: 'Path' = cls.select_version()
+        # validation test
+        if not cls.check_version_jar(client):
+            raise RuntimeError('selected .jar file is not supported minecraft client or not a minecraft client.')
         # set list, version data from `<version>.jar`
-        cls.get_jar_data(cls.get_version_jar(vpath))
+        cls.get_jar_data(client)
         # screen items list
         filteredItems: 'list[str]' = cls.item_filter(cls.itemList)
         # write to `mcfunction`
