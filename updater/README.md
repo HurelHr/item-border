@@ -28,10 +28,11 @@
 1. run python script: `updater/updater.py`
 1. file selector window will show
     > if the select window's title is: `select minecraft client ".jar" file.`,
-        this script catch correct minecraft path.
+    > this script catch correct minecraft path.
+
     > if the select window's title is: `failed to detect minecraft folder. please select your own minecraft client ".jar" under your own directory path.`,
-        which means script failled to detect correct minecraft path.
-        please launch minecraft once or go to **your** minecraft path
+    > which means script failled to detect correct minecraft path.
+    > please launch minecraft once or go to **your** minecraft path
 1. select correct minecraft client .jar
 
     > e.g. click file `26.2/26.2.jar` for minecraft `1.26.2` version
