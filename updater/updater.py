@@ -207,16 +207,15 @@ def default_minecraft_path() -> 'Path':
         Path: directory Path of minecraft
     """
     # depends on each platform
-    match sys.platform:
-        # windows
-        case 'win32':
-            return Path.home() / 'AppData' / 'Roaming' / '.minecraft'
-        # mac os
-        case 'darwin':
-            return Path.home() / 'Library' / 'Application Support' / '.minecraft'
-        # linux
-        case 'linux':
-            return Path.home() / '.minecraft'
+    # windows
+    if sys.platform == 'win32':
+        return Path.home() / 'AppData' / 'Roaming' / '.minecraft'
+    # mac os
+    elif sys.platform.startswith('darwin'):
+        return Path.home() / 'Library' / 'Application Support' / '.minecraft'
+    # linux
+    elif sys.platform.startswith('linux'):
+        return Path.home() / '.minecraft'
     # not supported os
     raise OSError(f'not supported os: {sys.platform}')
 
@@ -475,10 +474,10 @@ class CodeUpdater:
                     ├─item border/
                     │   ├─data/
                     │   └─pack.mcmeta
-                    └─updator/
+                    └─updater/
                         ├─impossible_items.json
                         ├─README.md
-                        └─updator.py
+                        └─updater.py
             2. run this method
             3. select file
                 .minecraft/
@@ -500,6 +499,8 @@ class CodeUpdater:
         cls.write_init_code(filteredItems)
         # write `pack.mcmeta`
         cls.update_pack_meta()
+        # print notification
+        print('Update Done! now you can enjoy new datapack')
 
 # =======
 

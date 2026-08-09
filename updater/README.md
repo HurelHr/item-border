@@ -1,6 +1,6 @@
 > Script Version: V1.1.0   
 > Document Version: V1.1.0   
-> Last Modified: 2026-07-31
+> Last Modified: 2026-08-10
 
 # Manual
 
@@ -9,7 +9,7 @@
 - python installed
 - minecraft installed
 
-- move this `updator` folder under the directory of datapack exists
+- move this `updater` folder under the directory of datapack exists
 
     folder tree should be like:
     ```
@@ -17,7 +17,7 @@
         ├─item border/
         │   ├─data/
         │   └─pack.mcmeta
-        └─updator/
+        └─updater/
             ├─impossible_items.json
             ├─README.md
             └─updator.py
@@ -32,7 +32,8 @@
 
     > if the select window's title is: `failed to detect minecraft folder. please select your own minecraft client ".jar" under your own directory path.`,   
     > which means script failled to detect correct minecraft path.   
-    > please launch minecraft once or go to **your** minecraft path
+    > please launch minecraft once or move to **your** minecraft path   
+    > after that, move to `.minecraft/versions` directory
 1. select correct minecraft client .jar
 
     > e.g. click file `26.2/26.2.jar` for minecraft `1.26.2` version   
@@ -61,5 +62,4 @@
 - `RuntimeError: user not select directory`: close folder-select-window without select any folder
 - `RuntimeError: user not select file`: close folder-select-window without select any file
 - `OSError: not supported os: <...>`: run this script not on windows, macos or linux
-- `ValueError: minecraft is not installed or invalid path. please check valid version path or install minecraft before run this script.`: select correct minecraft folder or install minecraft(launch minecraft once to solve this)
-- `ValueError: PACK VERSION is not parsed`: select correct minecraft client `.jar` file. if this exception occured, try re-install minecraft client. `version.json` file under the client may damaged.
+- `ValueError: PACK VERSION is not parsed`: select correct minecraft client `.jar` file. if this exception occured, try re-install minecraft client. `version.json` file under the client may damaged. or, run `CodeUpdater.get_jar_data` method before run `CodeUpdator.update_pack_meta` method
