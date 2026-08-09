@@ -49,7 +49,8 @@
 1. done! now you can apply this datapack for selected version of minecraft!
 
 > Note: this datapack requires `dialog` feature on minecraft. since, select minecraft version greater than `1.21.6`   
-> Also: if minecraft version changed, this datapack not automatically update to new version. if you use this datapack on up-to-date minecraft(or other version), run python script: `updater/updater.py` to update the datapack code.   
+> Also: if minecraft version changed, this datapack not automatically update to new version.   
+> if you use this datapack on up-to-date minecraft(or other version), run python script: `updater/updater.py` to update the datapack code.   
 
 > Note: this datapack updator rewrite following files under the datapack:   
 > - `function/dialog/init_codex.mcfunction`   
