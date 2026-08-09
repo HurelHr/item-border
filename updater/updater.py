@@ -471,7 +471,7 @@ class CodeUpdater:
             
             1. move `updator`folder under the directory that datapack exists
                 so, the structure should be like:
-                <folder>/
+                folder/
                     ├─item border/
                     │   ├─data/
                     │   └─pack.mcmeta
@@ -480,10 +480,11 @@ class CodeUpdater:
                         ├─README.md
                         └─updator.py
             2. run this method
-            3. select directory
+            3. select file
                 .minecraft/
                     └─versions/
-                        └─<version>     << select this then click `select folder`
+                        └─version/
+                            └─version.jar       << select this then click `select folder`
             4. this method will parse game client version, datapack version, items list
         """
         # set user input: select game client version under .minecraft/versions
